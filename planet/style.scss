@@ -1,0 +1,110 @@
+$widthLamp:40px;
+$countLamp:3;
+@keyframes lamp-light1 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: random(70)+vw;
+        top: random(70)+vh;
+    }
+}
+
+@keyframes lamp-light2 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: random(60)+vw;
+        top: random(60)+vh;
+    }
+}
+
+@keyframes lamp-light3 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: random(50)+vw;
+        top: random(50)+vh;
+    }
+}
+
+body {
+    counter-reset: count;
+    background-image: url(img/beautiful-planets-in-space.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 94vh;
+    position: relative;
+}
+
+.lamp-check {
+    position: absolute;
+    visibility: hidden;
+    left: -99999999px;
+    &:checked {
+        counter-increment: count;
+    }
+    &:checked~label {
+        display: none;
+    }
+}
+
+.lamp-counter {
+    width: 50px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: red;
+    position: absolute;
+    padding-left: 30px;
+    top: 14px;
+    right: 24px;
+    &::before {
+        content: counter(count);
+    }
+}
+
+.lamp {
+    position: absolute;
+    &__img {
+        width: $widthLamp;
+    }
+}
+
+.lamp1 {
+    animation: lamp-light1 3s 1s both;
+}
+
+.lamp2 {
+    animation: lamp-light2 3s 3s both;
+}
+
+.lamp3 {
+    animation: lamp-light3 3s 6s both;
+}
